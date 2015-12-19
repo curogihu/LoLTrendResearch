@@ -55,14 +55,25 @@ class EachChampionController extends Controller
                                               'i.ItemImage, ' .
                                               'i.ItemDescription, ' .
                                               'ibls.AvgMinPurchaseSeconds, ' .
-                                              'ibls.NumberOfTimes ' .
+                                              'ibls.NumberOfTimes, ' .
+                                              'sum(case when id.ItemDerivationId is null then 0 else 1 end) DerivationNum ' .
                                       'from ItemBuildLogSummary ibls ' .
                                       'inner join Champion c ' .
                                         'on ibls.ChampionId = c.ChampionId ' .
                                       'inner join Item i ' .
                                         'on ibls.ItemId = i.ItemId ' .
-                                      'where c.ChampionKey = "' . $championKey . '"' .
-                                      'order by c.ChampionKey, ibls.AvgMinPurchaseSeconds');
+                                      'left join ItemDerivation id ' .
+                                        'on ibls.ItemId = id.ItemId ' .
+                                      'where c.ChampionKey = "' . $championKey . '" ' .
+                                      'group by c.ChampionName, ' .
+                                                'c.ChampionKey, ' .
+                                                'i.ItemName, ' .
+                                                'i.ItemImage, ' .
+                                                'i.ItemDescription, ' .
+                                                'ibls.AvgMinPurchaseSeconds, ' .
+                                                'ibls.NumberOfTimes ' .
+                                      'order by c.ChampionKey, ' .
+                                                'ibls.AvgMinPurchaseSeconds');
 
 
         $contents = $this->getItemTableTag($championItemLog);
@@ -135,6 +146,7 @@ class EachChampionController extends Controller
           $tmpStr .= "<th>ItemName</th>";
           $tmpStr .= "<th>AvgMinPurchaseTime</th>";
           $tmpStr .= "<th>Frequent</th>";
+          $tmpStr .= "<th>Derivation</th>";
           $tmpStr .= "</tr>";
         }
 
@@ -156,6 +168,8 @@ class EachChampionController extends Controller
     }
 
     private function getItemLogRecord($info){
+      //echo "itemName : " . $info->ItemName . "Derivation: " . $info->DerivationNum . "<br>";
+
       $tmpStr = "";
       $tmpTime = $info->AvgMinPurchaseSeconds;
 
@@ -164,6 +178,13 @@ class EachChampionController extends Controller
       $tmpStr .= "<td>" . $info->ItemName . "</td>";
       $tmpStr .= "<td>" . floor($tmpTime / 60) . "min " . ($tmpTime % 60) . "sec"  . "</td>";
       $tmpStr .= "<td>" . $info->NumberOfTimes . "</td>";
+
+      if(intval($info->DerivationNum) === 0){
+        $tmpStr .= "<td>-</td>";
+      }else{
+        $tmpStr .= "<td>○</td>";
+      }
+
       $tmpStr .= "</tr>";
 
       return $tmpStr;

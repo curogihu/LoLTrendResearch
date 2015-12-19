@@ -55,7 +55,7 @@ body {
   align: center;
 }
 
-#contents th, td {
+#contents table th, td {
   font-size: 20px
   align: left;
 }
