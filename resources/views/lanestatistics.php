@@ -13,24 +13,41 @@ $champion = DB::table('Champion')
             ->get();
 
 if(!isset($_SESSION['championLane'])){
-  $_SESSION['championLane'] =
-    DB::table('MatchPlayerSetting')
-       ->select(DB::raw('Champion.ChampionName, ' .
-                      'sum(case when MatchPlayerSetting.Lane = "TOP" then 1 else 0 end) as TOP, ' .
-                      'sum(case when MatchPlayerSetting.Lane = "MIDDLE" then 1 else 0 end) as MID, ' .
-                      'sum(case when MatchPlayerSetting.Lane = "JUNGLE" then 1 else 0 end) as JG, ' .
-                      'sum(case when MatchPlayerSetting.Role = "DUO_CARRY" then 1 else 0 end) ADC, ' .
-                      'sum(case when MatchPlayerSetting.Role = "DUO_SUPPORT" then 1 else 0 end) as SUP '))
-      ->join('Champion', function($join)
-      {
-        $join->on('MatchPlayerSetting.ChampionId', '=', 'Champion.ChampionId');
-      })
-      ->groupby('Champion.ChampionName')
-      ->orderBy('Champion.ChampionName', 'asc')
-      ->get();
+
+  $tmpOutputArr = null;
+  $tmpArr = DB::table('MatchPlayerSetting')
+             ->select(DB::raw('Champion.ChampionName, ' .
+                            'sum(case when MatchPlayerSetting.Lane = "TOP" then 1 else 0 end) as TOP, ' .
+                            'sum(case when MatchPlayerSetting.Lane = "MIDDLE" then 1 else 0 end) as MID, ' .
+                            'sum(case when MatchPlayerSetting.Lane = "JUNGLE" then 1 else 0 end) as JG, ' .
+                            'sum(case when MatchPlayerSetting.Role = "DUO_CARRY" then 1 else 0 end) ADC, ' .
+                            'sum(case when MatchPlayerSetting.Role = "DUO_SUPPORT" then 1 else 0 end) as SUP '))
+            ->join('Champion', function($join)
+            {
+              $join->on('MatchPlayerSetting.ChampionId', '=', 'Champion.ChampionId');
+            })
+            ->groupby('Champion.ChampionName')
+            ->orderBy('Champion.ChampionName', 'asc')
+            ->get();
+
+  /*
+  After converting value to integer, adding each champion data to an array.
+  I tried converting string to interger when executing select statement, but didn't it.
+  */
+  foreach ($tmpArr as $info) {
+    $tmpOutputArr[] = array("ChampionName" => $info->ChampionName,
+                          "TOP" => intval($info->TOP),
+                          "MID" => intval($info->MID),
+                          "JG" => intval($info->JG),
+                          "ADC" => intval($info->ADC),
+                          "SUP" => intval($info->SUP));
+  }
+
+  $_SESSION['championLane'] = json_safe_encode($tmpOutputArr);
 }
 
 // laravel framework version
+/*
 function getLanguageSelectTag($languages){
   $tmpStr = '<select name="language" id="languages">';
 
@@ -40,11 +57,12 @@ function getLanguageSelectTag($languages){
 
   return $tmpStr . '</select>';
 }
-
+*/
 function json_safe_encode($data){
   return json_encode($data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 }
 
+/*
 function getChampionLaneTag($championLanes){
   $cnt = 0;
 
@@ -84,6 +102,7 @@ function getChampionLaneTag($championLanes){
 
   echo "</table>";
 }
+*/
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +112,22 @@ function getChampionLaneTag($championLanes){
   <title>LoL Trend Research</title>
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
   <link rel="stylesheet" href="css/default.css" type="text/css">
+  <link rel="stylesheet" href="css/classic.css" type="text/css">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.columns.min.js"></script>
 </head>
+
+<script>
+  $(document).ready(function() {
+    var json = <?php echo $_SESSION['championLane']; ?>;
+
+    $('#columns').columns({
+      data:json,
+      sortBy: 'ChampionName'
+    });
+  });
+</script>
+
 <body>
   <?php include_once("analytics/analyticstracking.php") ?>
   <div id="container">
@@ -113,7 +147,7 @@ function getChampionLaneTag($championLanes){
       </div>
 
       <div id="contents" class="middleContentItem">
-        <?php echo getChampionLaneTag($_SESSION['championLane']); ?>
+        <div id="columns"></div>
       </div>
     </div>
 

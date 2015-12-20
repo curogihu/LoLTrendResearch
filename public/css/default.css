@@ -2,10 +2,16 @@ html, body, #container{
   height: 100%;
 }
 
+html {
+  text-align: center;
+}
+
 body {
   background-color: black;
   color: grey;
   text-align: center;
+  width: 980px;
+  margin: 0px auto;
 }
 
 #container {
