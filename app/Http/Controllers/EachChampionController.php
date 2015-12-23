@@ -46,43 +46,60 @@ class EachChampionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($championKey)
+    public function show($championKey, $language)
     {
+      $languageId = "";
 
-        $championItemLog = DB::select('select c.ChampionName, ' .
+      if($language !== "en" && $language !== "ja"){
+        return view('toppage')->with('contents', "<p>this language isn't supported.</p>");
+      }
+
+      switch ($language) {
+        case "en":
+          $languageId = "en_US";
+          break;
+
+        case "ja":
+          $languageId = "ja_JP";
+          break;
+      }
+
+      $championItemLog = DB::select('select c.ChampionName, ' .
+                                            'c.ChampionKey, ' .
+                                            'i.ItemName, ' .
+                                            'i.ItemImage, ' .
+                                            'i.ItemDescription, ' .
+                                            'i.ItemGoldTotal, ' .
+                                            'ibls.AvgMinPurchaseSeconds, ' .
+                                            'ibls.NumberOfTimes, ' .
+                                            'sum(case when id.ItemDerivationId is null then 0 else 1 end) DerivationNum ' .
+                                    'from ItemBuildLogSummary ibls ' .
+                                    'inner join Champion c ' .
+                                      'on ibls.ChampionId = c.ChampionId ' .
+                                    'inner join Item i ' .
+                                      'on ibls.ItemId = i.ItemId ' .
+                                    'left join ItemDerivation id ' .
+                                      'on ibls.ItemId = id.ItemId ' .
+                                    'where c.ChampionKey = "' . $championKey . '" ' .
+                                    'and i.LanguageId = "' . $languageId . '" ' .
+                                    'group by c.ChampionName, ' .
                                               'c.ChampionKey, ' .
                                               'i.ItemName, ' .
                                               'i.ItemImage, ' .
                                               'i.ItemDescription, ' .
                                               'ibls.AvgMinPurchaseSeconds, ' .
-                                              'ibls.NumberOfTimes, ' .
-                                              'sum(case when id.ItemDerivationId is null then 0 else 1 end) DerivationNum ' .
-                                      'from ItemBuildLogSummary ibls ' .
-                                      'inner join Champion c ' .
-                                        'on ibls.ChampionId = c.ChampionId ' .
-                                      'inner join Item i ' .
-                                        'on ibls.ItemId = i.ItemId ' .
-                                      'left join ItemDerivation id ' .
-                                        'on ibls.ItemId = id.ItemId ' .
-                                      'where c.ChampionKey = "' . $championKey . '" ' .
-                                      'group by c.ChampionName, ' .
-                                                'c.ChampionKey, ' .
-                                                'i.ItemName, ' .
-                                                'i.ItemImage, ' .
-                                                'i.ItemDescription, ' .
-                                                'ibls.AvgMinPurchaseSeconds, ' .
-                                                'ibls.NumberOfTimes ' .
-                                      'order by c.ChampionKey, ' .
-                                                'ibls.AvgMinPurchaseSeconds');
+                                              'ibls.NumberOfTimes ' .
+                                    'order by c.ChampionKey, ' .
+                                              'ibls.AvgMinPurchaseSeconds');
 
 
-        $contents = $this->getItemTableTag($championItemLog);
-        // self:: or $this->
-         // echo $this->getAAA();
+      $contents = $this->getItemTableTag($championItemLog, $language);
+      // self:: or $this->
+       // echo $this->getAAA();
 
-        return view('toppage')->with('contents', $contents);
+      return view('toppage')->with('contents', $contents);
 
-        //return view('toppage');
+      //return view('toppage');
     }
 
     /**
@@ -123,7 +140,7 @@ class EachChampionController extends Controller
       return "AAA";
     }
 
-    private function getItemTableTag($statistics){
+    private function getItemTableTag($statistics, $language){
 
       $tmpStr = "";
       $displayChampion = "";
@@ -150,15 +167,7 @@ class EachChampionController extends Controller
           $tmpStr .= "</tr>";
         }
 
-        $tmpStr .= $this->getItemLogRecord($info);
-    /*
-        $tmpStr .= "<tr>";
-        $tmpStr .= "<td><img src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/item/" . $info->ItemImage . "' /></td>";
-        $tmpStr .= "<td>" . $info->ItemName . "</td>";
-        $tmpStr .= "<td>" . floor($tmpTime / 60) . "min " . ($tmpTime % 60) . "sec"  . "</td>";
-        $tmpStr .= "<td>" . $info->NumberOfTimes . "</td>";
-        $tmpStr .= "</tr>";
-    */
+        $tmpStr .= $this->getItemLogRecord($info, $language);
       }
 
       $tmpStr .= "</table>";
@@ -167,8 +176,9 @@ class EachChampionController extends Controller
 
     }
 
-    private function getItemLogRecord($info){
+    private function getItemLogRecord($info, $language){
       //echo "itemName : " . $info->ItemName . "Derivation: " . $info->DerivationNum . "<br>";
+      $priceItem = "";
 
       $tmpStr = "";
       $tmpTime = $info->AvgMinPurchaseSeconds;
@@ -177,7 +187,22 @@ class EachChampionController extends Controller
       $tmpStr .= "<td>";
       $tmpStr .= "<div class='Itemtooltip'>";
       $tmpStr .= "<img src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/item/" . $info->ItemImage . "' />";
-      $tmpStr .= "<span>" . $info->ItemDescription . "</span>";
+
+      $tmpStr .= "<span>";
+
+      switch ($language) {
+        case "en":
+          $priceItem = "Price: ";
+          break;
+
+        case "ja":
+          $priceItem = "価格: ";
+          break;
+      }
+
+      $tmpStr .= $priceItem . $info->ItemGoldTotal . "<br><br>";
+      $tmpStr .= $info->ItemDescription;
+      $tmpStr .= "</span>";
       $tmpStr .= "</div>";
       $tmpStr .= "</td>";
       $tmpStr .= "<td>" . $info->ItemName . "</td>";

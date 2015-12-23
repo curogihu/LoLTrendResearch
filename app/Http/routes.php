@@ -38,7 +38,7 @@ Route::get('/whenbuy', function () {
 
 Route::get('/whenbuy/', 'AllChampionController@show');
 
-Route::get('/whenbuy/{championKey}', 'EachChampionController@show');
+Route::get('/whenbuy/{championKey}/{language}', 'EachChampionController@show');
 
 Route::get('/whenkilled', function () {
     return view('monsterstatistics');

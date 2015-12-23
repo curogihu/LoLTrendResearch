@@ -1,5 +1,8 @@
 <?php
 
+// ja_JP or en_US
+$languageId = "ja_JP";
+
 try{
   $apiKey = DB::table('APIKey')->select('myKey')->first();
 
@@ -9,8 +12,16 @@ try{
   die();
 }
 
+
+// English version
 $url = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/' .
-        'item?locale=en_US&itemListData=all&api_key='. $apiKey->myKey;
+        'item?locale=' . $languageId  . '&itemListData=all&api_key='. $apiKey->myKey;
+
+// Japanese version
+/*
+$url = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/' .
+        'item?locale=ja_JP&itemListData=all&api_key='. $apiKey->myKey;
+*/
 
 if(($resource = file_get_contents($url)) === FALSE){
   echo "url = ". $url;
@@ -22,7 +33,7 @@ $json = json_decode($resource, true);
 foreach($json["data"] as $info){
   $itemId = $info["id"];
 
-  $insertItemArr[] = array('LanguageId' => "en_US",
+  $insertItemArr[] = array('LanguageId' => $languageId,
                             'ItemId' => $itemId,
                             'ItemName' => $info["name"],
                             'ItemDescription' => $info["description"],
@@ -57,7 +68,7 @@ try{
 }catch(Exception $e){
   echo "Error Message: " . $e . "<br>";
   echo "objective data is the following:<br>";
-  echo var_dump($insertDataArr);
+  echo var_dump($insertItemTagArr);
   die();
 }
 
