@@ -53,7 +53,7 @@ Route::get('/howmanycs', function () {
 });
 
 Route::get('/', function() {
-    return view('toppage');
+    return view('toppage')->with('contents', "");
 });
 //Route::get('/riot.txt', 'TextController@riot');
 /*
