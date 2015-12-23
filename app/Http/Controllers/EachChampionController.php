@@ -157,6 +157,7 @@ class EachChampionController extends Controller
           $displayChampion = $info->ChampionName;
 
           $tmpStr .= "<p><img src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/champion/" . $info->ChampionKey . ".png' />" . $info->ChampionName . "</p>";
+/*
           $tmpStr .= "<table border='1' align='center'>";
           $tmpStr .= "<tr>";
           $tmpStr .= "<th>image</th>";
@@ -165,6 +166,8 @@ class EachChampionController extends Controller
           $tmpStr .= "<th>Frequent</th>";
           $tmpStr .= "<th>Derivation</th>";
           $tmpStr .= "</tr>";
+*/
+          $tmpStr .= $this->getTableHeader($language);
         }
 
         $tmpStr .= $this->getItemLogRecord($info, $language);
@@ -206,7 +209,8 @@ class EachChampionController extends Controller
       $tmpStr .= "</div>";
       $tmpStr .= "</td>";
       $tmpStr .= "<td>" . $info->ItemName . "</td>";
-      $tmpStr .= "<td>" . floor($tmpTime / 60) . "min " . ($tmpTime % 60) . "sec"  . "</td>";
+      //$tmpStr .= "<td>" . floor($tmpTime / 60) . "min " . ($tmpTime % 60) . "sec"  . "</td>";
+      $tmpStr .= "<td>" . sprintf("%02d", floor($tmpTime / 60)) . ":" . sprintf("%02d", ($tmpTime % 60)) . "</td>";
       $tmpStr .= "<td>" . $info->NumberOfTimes . "</td>";
 
       if(intval($info->DerivationNum) === 0){
@@ -216,6 +220,36 @@ class EachChampionController extends Controller
       }
 
       $tmpStr .= "</tr>";
+
+      return $tmpStr;
+    }
+
+    private function getTableHeader($language){
+      $tmpStr = "";
+
+      switch ($language) {
+        case "en":
+          $tmpStr .= "<table border='1' align='center'>";
+          $tmpStr .= "<tr>";
+          $tmpStr .= "<th>image</th>";
+          $tmpStr .= "<th>ItemName</th>";
+          $tmpStr .= "<th>AvgMinPurchaseTime</th>";
+          $tmpStr .= "<th>Frequent</th>";
+          $tmpStr .= "<th>Derivation</th>";
+          $tmpStr .= "</tr>";
+          break;
+
+        case "ja":
+          $tmpStr .= "<table border='1' align='center'>";
+          $tmpStr .= "<tr>";
+          $tmpStr .= "<th>画像</th>";
+          $tmpStr .= "<th>アイテム名</th>";
+          $tmpStr .= "<th>平均最短購入時間</th>";
+          $tmpStr .= "<th>回数</th>";
+          $tmpStr .= "<th>派生有無</th>";
+          $tmpStr .= "</tr>";
+          break;
+      }
 
       return $tmpStr;
     }
