@@ -174,7 +174,12 @@ class EachChampionController extends Controller
       $tmpTime = $info->AvgMinPurchaseSeconds;
 
       $tmpStr .= "<tr>";
-      $tmpStr .= "<td><img src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/item/" . $info->ItemImage . "' /></td>";
+      $tmpStr .= "<td>";
+      $tmpStr .= "<div class='Itemtooltip'>";
+      $tmpStr .= "<img src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/item/" . $info->ItemImage . "' />";
+      $tmpStr .= "<span>" . $info->ItemDescription . "</span>";
+      $tmpStr .= "</div>";
+      $tmpStr .= "</td>";
       $tmpStr .= "<td>" . $info->ItemName . "</td>";
       $tmpStr .= "<td>" . floor($tmpTime / 60) . "min " . ($tmpTime % 60) . "sec"  . "</td>";
       $tmpStr .= "<td>" . $info->NumberOfTimes . "</td>";
