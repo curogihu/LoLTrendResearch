@@ -109,12 +109,8 @@ class AllChampionController extends Controller
             $tmpStr .= "</div></p>";
             $tmpStr .= "<p><div class='championIcon'>";
         }
-/*
-        $tmpStr .= "<a href='/whenbuy/" . $info->ChampionKey . "/en'>";
-        $tmpStr .= "<img src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/champion/" . 
-                    $info->ChampionKey . ".png' />" . $info->ChampionName;
-        $tmpStr .= "</a>";
-*/
+
+        $tmpStr .= "<div class='eachChampion'>";
         $tmpStr .= "<img src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/champion/" .
                     $info->ChampionKey . ".png' />";
 
@@ -123,6 +119,7 @@ class AllChampionController extends Controller
         $tmpStr .= "<br><a href='/whenbuy/" . $info->ChampionKey . "/en'>English</a>";
         $tmpStr .= "<br><a href='/whenbuy/" . $info->ChampionKey . "/ja'>Japanese</a>";
         $tmpStr .= "</p>";
+        $tmpStr .= "</div>";
 
         $displayNum += 1;
       }

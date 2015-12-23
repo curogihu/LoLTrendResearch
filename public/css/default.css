@@ -176,6 +176,15 @@ a:active {
 }
 
 @media screen and (max-width: 800px){
+
+  body {
+    background-color: black;
+    color: grey;
+    text-align: left;
+    width: 800px;
+    margin: 0px auto;
+  }
+
   #menu, .championIcon {
     display: flex;
     display: -webkit-flex;
@@ -183,11 +192,24 @@ a:active {
     flex-flow: column wrap;
     -webkit-flex-flow: column wrap;
   }
-/*
-  img {
-    display: none;
+
+  .eachChampion {
+    display: flex;
+    display: -webkit-flex;
+
+    flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
   }
-  */
+
+  img {
+    /*
+      display: none;
+      float: left;
+    */
+    width: 100px;
+    height: 100px;
+  }
+
 }
 
 @media screen and (min-width: 801px){
@@ -200,6 +222,14 @@ a:active {
 
     justify-content: space-around;
     -webkit-justify-content: space-around;
+  }
+
+  .eachChampion {
+    display: flex;
+    display: -webkit-flex;
+
+    flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
   }
 
 }
