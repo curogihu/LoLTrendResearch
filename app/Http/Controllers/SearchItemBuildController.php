@@ -16,7 +16,7 @@ class SearchItemBuildController extends Controller
      */
     public function index()
     {
-        return view('articles.create');
+        return view('researchForm');
     }
 
     /**
