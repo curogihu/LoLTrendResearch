@@ -70,6 +70,12 @@ Route::get('/top', function() {
 });
 */
 
+Route::get('/search/itemBuild', 'SearchItemBuildController@index');
+
+Route::get('/search/itemBuild/result', 'SearchItemBuildController@show');
+
+// 追加
+Route::get('/search/itemBuild/{summonerName}', 'SearchItemBuildController@create'); // ①
 
 
 // these links for importing each summoner data

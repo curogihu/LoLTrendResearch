@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ItemBuildHistoryController extends Controller
+class SearchItemBuildController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class ItemBuildHistoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('articles.create');
     }
 
     /**
@@ -83,9 +83,5 @@ class ItemBuildHistoryController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function show($summonerName){
-        
     }
 }
