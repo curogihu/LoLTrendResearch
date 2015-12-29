@@ -1,0 +1,235 @@
+body > #container {
+  height: auto;
+}
+
+html, body, #container{
+  height: 100%;
+}
+
+html {
+  text-align: center;
+}
+
+body {
+  background-color: black;
+  color: grey;
+  text-align: center;
+  width: 980px;
+  margin: 0px auto;
+}
+
+/* 表示文字の装飾 */
+div.Itemtooltip{
+    color: #555;
+    display: inline-block;                        /* インライン要素化 */
+    border-bottom:dashed 1px #555;    /* 下線を引く */
+}
+
+/* ツールチップ部分を隠す */
+div.Itemtooltip span {
+    display: none;
+}
+
+/* マウスオーバー */
+div.Itemtooltip:hover {
+    position: relative;
+    color: #333;
+}
+
+/* マウスオーバー時にツールチップを表示 */
+div.Itemtooltip:hover span {
+    display: block;                  /* ボックス要素にする */
+    position: absolute;            /* relativeからの絶対位置 */
+/*
+    top: 25px;
+*/
+    left: 60px;
+    font-size: 90%;
+    color: #fff;
+    background-color: dimgray;
+    width: 400px;
+    padding: 5px;
+    border-radius:3px;
+    text-align: left;
+/*    z-index:100; */
+}
+
+/* フキダシ部分を作成 */
+div.Itemtooltip span:before{
+    content:'';
+    display:block;
+    position:absolute;                         /* relativeからの絶対位置 */
+    height:0;
+    width:0;
+    top:-13px;
+    left:15px;
+    right: 30px;
+    border:13px transparent solid;
+    border-right-width:0;
+    border-left-color:dimgray;
+    transform:rotate(270deg);            /* 傾きをつける */
+    -webkit-transform:rotate(270deg);
+    -o-transform:rotate(270deg);
+    z-index:100;
+}
+
+a:link {
+  color:grey; text-decoration:none;
+}
+a:visited {
+  color:grey; text-decoration:none;
+}
+
+a:hover {
+  color:grey; text-decoration:none;
+}
+
+a:active {
+  color:grey; text-decoration:none;
+}
+
+.containerItem {
+  margin: 5px;
+}
+
+.menuItem {
+  height: 50px;
+  text-align: center;
+  font-size: 30px;
+  background-color: black;
+}
+
+#container {
+  display: flex;
+  display: -webkit-flex;
+
+  flex-flow: column wrap;
+  -webkit-flex-flow: column wrap;
+}
+
+
+#header {
+  font-size: 48px;
+  text-align: center;
+
+  order: 1;
+  -webkit-order: 1;
+
+  flex-basis: 100%;
+  -webkit-flex-basis: 100%;
+}
+
+#left {
+  height: 80px;
+
+  order: 2;
+  -webkit-order: 2;
+
+  flex-basis: 100%;
+  -webkit-flex-basis: 100%;
+}
+
+#middle {
+  order: 3;
+  -webkit-order: 3;
+
+  flex-basis: 100%;
+  -webkit-flex-basis: 100%;
+}
+
+#contents {
+  margin-top: 50px;
+}
+
+#contents table {
+  border: 1px;
+  align: center;
+}
+
+#contents table th, td {
+  font-size: 20px
+  align: left;
+}
+
+#contents table img{
+  width: 50px;
+  height: 50px;
+}
+
+#right {
+  height: 80px;
+
+  order: 4;
+  -webkit-order: 4;
+
+  flex-basis: 100%;
+  -webkit-flex-basis: 100%;
+}
+
+
+#footer {
+  order: 5;
+  -webkit-order: 5;
+
+  flex-basis: 100%;
+  -webkit-flex-basis: 100%;
+}
+
+@media screen and (max-width: 800px){
+
+  body {
+    background-color: black;
+    color: grey;
+    text-align: left;
+    width: 800px;
+    margin: 0px auto;
+  }
+
+  #menu, .championIcon {
+    display: flex;
+    display: -webkit-flex;
+
+    flex-flow: column wrap;
+    -webkit-flex-flow: column wrap;
+  }
+
+  .eachChampion {
+    display: flex;
+    display: -webkit-flex;
+
+    flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+  }
+
+  img {
+    /*
+      display: none;
+      float: left;
+    */
+    width: 100px;
+    height: 100px;
+  }
+
+}
+
+@media screen and (min-width: 801px){
+  #menu, .championIcon {
+    display: flex;
+    display: -webkit-flex;
+
+    flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+  }
+
+  .eachChampion {
+    display: flex;
+    display: -webkit-flex;
+
+    flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+  }
+
+}
