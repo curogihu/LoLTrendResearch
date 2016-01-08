@@ -10,12 +10,12 @@ Procedure is the following:
 - Import various League of Legends(LoL) data in advance.
 - Based on data, display informative something.
 
-Reference:
-Laravel -> Documentation
+Reference
+- Laravel -> Documentation
 https://laravel.com/
 
-LaravelCollective
+- LaravelCollective
 https://laravelcollective.com/docs/5.2/html
 
-Riot Game API
+- Riot Game API
 https://developer.riotgames.com/
