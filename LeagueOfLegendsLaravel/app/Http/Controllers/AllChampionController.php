@@ -116,8 +116,8 @@ class AllChampionController extends Controller
 
         $tmpStr .= "<p>";
         $tmpStr .= $info->ChampionName;
-        $tmpStr .= "<br><a href='/whenbuy/" . $info->ChampionKey . "/en'>English</a>";
-        $tmpStr .= "<br><a href='/whenbuy/" . $info->ChampionKey . "/ja'>Japanese</a>";
+        $tmpStr .= "<br><a href='whenbuy/" . $info->ChampionKey . "/en'>English</a>";
+        $tmpStr .= "<br><a href='whenbuy/" . $info->ChampionKey . "/ja'>Japanese</a>";
         $tmpStr .= "</p>";
         $tmpStr .= "</div>";
 

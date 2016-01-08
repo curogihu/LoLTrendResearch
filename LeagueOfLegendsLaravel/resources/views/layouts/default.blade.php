@@ -19,7 +19,8 @@
   <div id="container">
 
     <div id="header" class="middleContentItem">
-      <h1>@yield('title')</h1>
+      <!--<h1>@yield('title')</h1>-->
+      {!! link_to('http://loltrendresearch.xyz', 'LoL Trend Research') !!}
     </div>
 
     <div id="left">
@@ -32,6 +33,7 @@
         <a href="/whenkilled" class="menuItem">@yield('menuItem2')</a>
         <a href="/wherelane" class="menuItem">@yield('menuItem3')</a>
         <a href="/howmanycs" class="menuItem">@yield('menuItem4')</a>
+        <a href="/form" class="menuItem">@yield('menuItem5')</a>
       </div>
 
 <!--      <div id="contents" class="middleContentItem">@yield('contents')</div> -->

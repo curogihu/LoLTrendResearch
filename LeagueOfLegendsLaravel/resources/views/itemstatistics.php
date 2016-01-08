@@ -118,7 +118,7 @@ function getLanguageSelectTag($languages){
   <div id="container">
 
     <div id="header" class="middleContentItem">
-      <h1>LoL Trend Research</h1>
+      <a href='http://loltrendresearch.xyz'> LoL Trend Research</a>
     </div>
 
     <div id="left"></div>
@@ -129,6 +129,7 @@ function getLanguageSelectTag($languages){
         <a href="/whenkilled" class="menuItem">When killed</a>
         <a href="/wherelane" class="menuItem">Where lane</a>
         <a href="/howmanycs" class="menuItem">How many CS</a>
+        <a href="/form" class="menuItem">Search</a>
       </div>
 
       <div id="contents" class="middleContentItem">

@@ -2,78 +2,18 @@
 
 /*
 |--------------------------------------------------------------------------
-| Application Routes
+| Routes File
 |--------------------------------------------------------------------------
 |
-| Here is where you can register all of the routes for an application.
+| Here is where you will register all of the routes in an application.
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
 */
 
 /*
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/main', function () {
-    return view('main');
-});
-
-Route::get('/objective', function () {
-    return view('objective');
-});
+  Import various League of Legends data via LoL JSON
 */
-/*
-Route::get('/item', function () {
-    return view('item');
-});
-*/
-
-/*
-Route::get('/whenbuy', function () {
-    return view('itemstatistics');
-});
-*/
-
-Route::get('/whenbuy', 'AllChampionController@show');
-
-Route::get('/whenbuy/{championKey}/{language}', 'EachChampionController@show');
-
-Route::get('/whenkilled', function () {
-    return view('monsterstatistics');
-});
-
-Route::get('/wherelane', function () {
-    return view('lanestatistics');
-});
-
-Route::get('/howmanycs', function () {
-    return view('csstatistics');
-});
-
-Route::get('/', function() {
-    return view('toppage')->with('contents', "");
-});
-//Route::get('/riot.txt', 'TextController@riot');
-/*
-Route::get('/championLane', function () {
-    return view('championLane');
-});
-
-Route::get('/championLane', function () {
-    return view('championLane');
-});
-
-Route::get('/top', function() {
-    return view('toppage');
-});
-*/
-
-
-
-// these links for importing each summoner data
-// convert to Laravel version, ok
 Route::get('/import/summoner', function () {
     return view('import.importSummoner');
 });
@@ -105,18 +45,51 @@ Route::get('/import/language', function () {
 });
 
 /*
-Route::get('main/riot.txt', function(){
-  return view('riot.riot');
+  Display page based on various data in MySQL
+*/
+Route::get('/', function() {
+    return view('toppage')->with('contents', "");
+});
+
+Route::get('/whenbuy', 'AllChampionController@show');
+
+Route::get('/whenbuy/{championKey}/{language}', 'EachChampionController@show');
+
+Route::get('/whenkilled', function () {
+    return view('monsterstatistics');
+});
+
+Route::get('/wherelane', function () {
+    return view('lanestatistics');
+});
+
+Route::get('/howmanycs', function () {
+    return view('csstatistics');
+});
+
+
+Route::get('/form', function () {
+    //return view('welcome');
+  return view('researchForm')->with('errorMessage', "");
+});
+
+Route::post('/register', 'RegisterSummonerController@register');
+
+Route::get('/search', 'SearchSummonerItemBuildController@championDisplay');
+Route::get('/search/{championKey}/{language}', 'SearchSummonerItemBuildController@itemBuildDisplay');
+
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| This route group applies the "web" middleware group to every route
+| it contains. The "web" middleware group is defined in your HTTP
+| kernel and includes session state, CSRF protection, and more.
+|
+*/
+/*
+Route::group(['middleware' => ['web']], function () {
+    //
 });
 */
-
-
-
-
-
-//上記は、プロジェクトの作成後のデフォルト、’/’をWelcomeControllerのindexメソッドにマッピングしている
-//Route::get('/', 'WelcomeController@index');
-
-//また、コントローラー全体をパスにマッピングすることも可能 
-//以下のようにRoute::controllerメソッドを使用する
-//Route::controller('/', 'WelcomeController');
