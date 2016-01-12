@@ -10,16 +10,16 @@ Procedure is the following:
 - Import various League of Legends(LoL) data in advance.
 - Based on data, display informative something.
 
+Folder description  
+LeagueOfLegendsLaravel/app/Http/routes.php  
+- Based on URL, move to PHP file or controller
 
-Based on URL, move to PHP file or controller
-LeagueOfLegendsLaravel/app/Http/routes.php
-
+LeagueOfLegendsLaravel/app/Http/Controllers/...  
 Controller
-LeagueOfLegendsLaravel/app/Http/Controllers/...
 
-CSS, Javascript and so on.
-LeagueOfLegendsLaravel/public/
-
+LeagueOfLegendsLaravel/public/  
+CSS, Javascript and so on.  
+  
 Reference
 - Laravel -> Documentation
 https://laravel.com/
