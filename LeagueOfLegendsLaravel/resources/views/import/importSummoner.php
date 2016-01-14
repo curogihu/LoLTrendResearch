@@ -35,7 +35,9 @@ try{
   die();
 }
 
-echo "finished";
+//echo "finished";
+date_default_timezone_set('Asia/Tokyo');
+Log::info('Finishing importing Summoner, date: ' . date("F j, Y, g:i a"));
 
 function convertToQueryStr($arr){
   $output = "";

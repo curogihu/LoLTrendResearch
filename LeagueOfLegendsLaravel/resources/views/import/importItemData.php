@@ -72,4 +72,6 @@ try{
   die();
 }
 
-echo "finish.";
+//echo "finish.";
+date_default_timezone_set('Asia/Tokyo');
+Log::info('Finishing importing ItemData, date: ' . date("F j, Y, g:i a"));

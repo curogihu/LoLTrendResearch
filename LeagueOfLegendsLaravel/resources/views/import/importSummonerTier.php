@@ -143,4 +143,6 @@ try{
   echo var_dump($insertArr);
 }
 
-echo "<br>finished";
+//echo "<br>finished";
+date_default_timezone_set('Asia/Tokyo');
+Log::info('Finishing importing SummonerTier, date: ' . date("F j, Y, g:i a"));

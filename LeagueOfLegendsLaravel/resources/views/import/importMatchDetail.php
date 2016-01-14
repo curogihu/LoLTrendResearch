@@ -235,7 +235,9 @@ try{
 }
 
 //fclose($fp);
-echo "finished.";
+//echo "finished.";
+date_default_timezone_set('Asia/Tokyo');
+Log::info('Finishing importing MatchDetail, date: ' . date("F j, Y, g:i a"));
 
 function getMatchDetailUrl($baseUrl, $matchId, $apiKey){
   $tmpUrl = str_replace("[MatchId]", $matchId, $baseUrl);
