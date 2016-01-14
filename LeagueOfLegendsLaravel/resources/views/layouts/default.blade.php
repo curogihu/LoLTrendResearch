@@ -37,7 +37,9 @@
       </div>
 
 <!--      <div id="contents" class="middleContentItem">@yield('contents')</div> -->
-      <div id="contents" class="middleContentItem">{!! $contents !!}</div>
+      <div id="contents" class="middleContentItem">
+        {!! $contents !!}
+      </div>
     </div>
 
     <div id="right">

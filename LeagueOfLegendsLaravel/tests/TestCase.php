@@ -7,7 +7,8 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
      *
      * @var string
      */
-    protected $baseUrl = 'http://localhost';
+    //protected $baseUrl = 'http://localhost';
+    protected $baseUrl = 'http://localhost:1025/LeagueOfLegendsLaravel/public';
 
     /**
      * Creates the application.
@@ -16,10 +17,12 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
      */
     public function createApplication()
     {
+
         $app = require __DIR__.'/../bootstrap/app.php';
 
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
         return $app;
+
     }
 }

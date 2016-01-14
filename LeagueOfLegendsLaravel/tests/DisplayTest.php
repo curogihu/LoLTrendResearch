@@ -7,13 +7,16 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class DisplayTest extends TestCase
 {
     /**
-     * A basic functional test example.
+     * A basic test example.
      *
      * @return void
      */
-    public function testBasicExample()
+    public function testLinkCheck()
     {
-        $this->visit('/')
-             ->see('Laravel 5');
+        //$this->assertTrue(true);
+      $response = $this->visit('/');
+      $this->assertEquals(200, $response->status());
     }
 }
+
+

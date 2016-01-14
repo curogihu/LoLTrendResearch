@@ -7,10 +7,8 @@
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
   <link rel="stylesheet" href="css/default.css" type="text/css">
 -->
-
   <link rel="stylesheet" href="{{{asset('/css/bootstrap.css')}}}" type="text/css">
   <link rel="stylesheet" href="{{{asset('/css/default.css')}}}" type="text/css">
-
 <!--
   HTML::script
 -->
@@ -21,6 +19,7 @@
   <div id="container">
 
     <div id="header" class="middleContentItem">
+      <!--<h1>@yield('title')</h1>-->
       {!! link_to('http://loltrendresearch.xyz', 'LoL Trend Research') !!}
     </div>
 
@@ -38,30 +37,8 @@
       </div>
 
       <div id="contents" class="middleContentItem">
-<!--
-        {!! Form::open(array('url' => 'register', 'method' => 'POST')) !!}
-        <div class="form-group">
-          <p>Regsiter</p>
-          {!! Form::label('registerSummonerNameLabel', 'Summoner Name:') !!}
-          {!! Form::text('registerSummonerName', null) !!}
-          {!! Form::submit('Register') !!}
-        </div>
-
-        {!! Form::close() !!}
--->
-
-        {!! Form::open(array('url' => 'search', 'method' => 'GET')) !!}
-        <div class="form-group">
-          <p>Summoners in only NA server are targeted.</p>
-          {!! $errorMessage !!}
-          {!! Form::label('summonerNameLabel', 'Summoner Name') !!}
-          {!! Form::text('summonerName', null) !!}
-          {!! Form::submit('Search') !!}
-        </div>
-
-      {!! Form::close() !!}
+        @yield('errorMessage')
       </div>
-
     </div>
 
     <div id="right">

@@ -99,6 +99,10 @@ a:active {
   background-color: black;
 }
 
+.errorMessage {
+  font-size: 30px;
+}
+
 #container {
   display: flex;
   display: -webkit-flex;
