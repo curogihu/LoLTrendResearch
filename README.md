@@ -19,7 +19,10 @@ Controller
 
 LeagueOfLegendsLaravel/public/  
 CSS, Javascript and so on.  
-  
+
+LeagueOfLegendsLaravel/storage/logs/  
+Log file is outputed in this folder.  
+    
 Reference
 - Laravel -> Documentation
 https://laravel.com/
