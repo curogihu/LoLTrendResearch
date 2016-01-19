@@ -115,6 +115,7 @@ a:active {
 #header {
   font-size: 48px;
   text-align: center;
+  margin-top: 50px;
 
   order: 1;
   -webkit-order: 1;
