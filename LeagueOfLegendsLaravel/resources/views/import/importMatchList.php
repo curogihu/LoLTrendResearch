@@ -103,6 +103,7 @@ foreach ($summoners as $summoner) {
 
     // Only ranked games are targeted.
     if($game["subType"] === "RANKED_SOLO_5x5" ||
+        $game["subType"] === "RANKED_PREMADE_5x5" ||
         $game["subType"] === "RANKED_TEAM_5x5"){
 /*
        $insertDataArr[] = array('MatchId' => $game["gameId"],
