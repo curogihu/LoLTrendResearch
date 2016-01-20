@@ -110,7 +110,7 @@ class AllChampionController extends Controller
             $tmpStr .= "<p><div class='championIcon'>";
         }
 
-        $tmpStr .= "<div class='eachChampion'>";
+        $tmpStr .= "<div class='eachChampion col-md-3'>";
         $tmpStr .= "<img src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/champion/" .
                     $info->ChampionKey . ".png' />";
 
