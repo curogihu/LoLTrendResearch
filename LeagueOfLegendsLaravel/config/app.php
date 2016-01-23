@@ -150,6 +150,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         Collective\Html\HtmlServiceProvider::class,
+        Liebig\Cron\Laravel5ServiceProvider::class,
 
         /*
          * Application Service Providers...
