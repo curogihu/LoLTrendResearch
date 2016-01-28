@@ -9,6 +9,8 @@
 
 <body ng-controller="ChampionsController as ChampionsCtrl">
   <?php include_once("analytics/analyticstracking.php") ?>
+  <script src="{{{asset('/js/angular.js')}}}"></script>
+
   <div id="container">
 
     <div id="header" class="middleContentItem">
@@ -30,7 +32,7 @@
 
       <div id="contents" class="middleContentItem">
         <ul ng-repeat="champion in ChampionsCtrl.champions">
-          <% champion.ChampionKey + ', ' + champion.ChampionName %>
+          <li><%champion.ChampionKey + ', ' + champion.ChampionName%></li>
         </ul>
       </div>
     </div>
@@ -45,16 +47,17 @@
   <script type="text/javascript">
     var json = {!! $contents !!};
 
-    var app = angular.module('itemBuildStatisticsApp', [], funtion($interpolateProvider){
-      $interpolateProvider.startSymbol('<%');
-      $interpolateProvider.endSymbol('%>');
+    var app = angular.module('itemBuildStatisticsApp', [], function($interpolateProvider) {
+        $interpolateProvider.startSymbol('<%');
+        $interpolateProvider.endSymbol('%>');
     });
 
     app.controller('ChampionsController', function(){
-      this.champions = json.query();
+      this.champions = angular.fromJson(json);
     });
+
   </script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
 </body>
 </html>
