@@ -46,6 +46,18 @@ class AllChampionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function show()
+    {
+        $champions = DB::table('Champion')
+            ->select('ChampionName', 'ChampionKey')
+            ->orderBy('ChampionKey')
+            ->get();
+
+        return view('allChampionsPage')->with('contents', json_encode($champions));
+    }
+
+/*  old version
     public function show()
     {
         $champions = DB::table('Champion')
@@ -59,7 +71,7 @@ class AllChampionController extends Controller
 
         return view('toppage')->with('contents', $contents);
     }
-
+*/
     /**
      * Show the form for editing the specified resource.
      *
