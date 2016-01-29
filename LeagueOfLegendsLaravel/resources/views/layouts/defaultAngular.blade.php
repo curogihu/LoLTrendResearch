@@ -31,9 +31,28 @@
       </div>
 
       <div id="contents" class="middleContentItem">
+        <!--
         <ul ng-repeat="champion in ChampionsCtrl.champions">
           <li><%champion.ChampionKey + ', ' + champion.ChampionName%></li>
         </ul>
+-->
+        <div ng-repeat="champion in ChampionsCtrl.champions">
+          <div class='eachChampion col-md-3'>
+<!--
+            <img src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/champion/Aatrox.png' />
+-->
+            <img ng-src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/champion/<%champion.ChampionKey%>.png' />
+            <p>
+              <%champion.ChampionName%><br>
+<!--
+              <a href='whenbuy/Aatrox/en'>English</a><br>
+              <a href='whenbuy/Aatrox/ja'>Japanese</a>
+-->
+              <a ng-href="whenbuy/<%champion.ChampionKey%>/en">English</a><br>
+              <a ng-href="whenbuy/<%champion.ChampionKey%>/ja">Japanese</a><br>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 
