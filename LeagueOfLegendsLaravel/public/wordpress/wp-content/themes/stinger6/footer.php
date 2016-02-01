@@ -7,7 +7,7 @@ $defaults = array(
 	'menu_class'      => 'footermenust',
 	'depth'           => 1,
 );
-wp_nav_menu( $defaults );
+//wp_nav_menu( $defaults );
 ?>
 <!--
 	<h3>
