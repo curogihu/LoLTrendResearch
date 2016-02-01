@@ -17,9 +17,11 @@ wp_nav_menu( $defaults );
 		<?php } ?>
 	</h3>
 
+<!--
 	<p>
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'description' ); ?></a>
 	</p>
+-->
 
 	<p class="copy">Copyright&copy;
 		<?php bloginfo( 'name' ); ?>

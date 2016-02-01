@@ -12,7 +12,7 @@
 		<meta charset="<?php bloginfo( 'charset' ); ?>" >
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 		<meta name="format-detection" content="telephone=no" >
-		
+
 		<?php if ( is_home() && !is_paged() ): ?>
 			<meta name="robots" content="index,follow">
 		<?php elseif ( is_search() or is_404() ): ?>

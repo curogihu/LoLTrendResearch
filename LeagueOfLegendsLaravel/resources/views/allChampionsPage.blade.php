@@ -33,7 +33,7 @@
       <div id="contents" class="middleContentItem">
 
         <div ng-repeat="champion in ChampionsCtrl.champions">
-          <div class='eachChampion col-md-3' style="margin-top: 30px;">
+          <span class='eachChampion col-md-3' style="margin-top: 30px;">
 
             <img ng-src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/champion/<%champion.ChampionKey%>.png' />
             <p>
@@ -42,7 +42,7 @@
               <a ng-href="whenbuy/<%champion.ChampionKey%>/ja">Japanese</a><br>
             </p>
           </div>
-        </div>
+        </span>
       </div>
     </div>
 
