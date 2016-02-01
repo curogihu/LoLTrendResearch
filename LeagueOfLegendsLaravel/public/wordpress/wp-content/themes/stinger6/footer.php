@@ -9,6 +9,7 @@ $defaults = array(
 );
 wp_nav_menu( $defaults );
 ?>
+<!--
 	<h3>
 		<?php if ( is_home() or is_front_page() ) { ?>
 			<?php bloginfo( 'name' ); ?>
@@ -16,6 +17,7 @@ wp_nav_menu( $defaults );
 			<?php st_wp_title( '' ); ?>
 		<?php } ?>
 	</h3>
+-->
 
 <!--
 	<p>
