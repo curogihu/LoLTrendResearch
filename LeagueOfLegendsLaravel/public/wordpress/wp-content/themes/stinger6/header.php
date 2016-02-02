@@ -50,6 +50,8 @@
 					<dt class="trigger">
 					<p><span class="op"><i class="fa fa-bars"></i>&nbsp; MENU</span></p>
 					</dt>
+
+					<!-- 20160201 - This part should be responsive -->
 					<dd class="acordion_tree">
 						<?php
 							$defaults = array(

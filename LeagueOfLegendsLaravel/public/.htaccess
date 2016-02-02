@@ -6,7 +6,8 @@
     RewriteEngine On
 
     # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/wordpress.*$
     RewriteRule ^(.*)/$ /$1 [L,R=301]
 
     # Handle Front Controller...

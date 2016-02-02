@@ -78,6 +78,14 @@ Route::post('/register', 'RegisterSummonerController@register');
 Route::get('/search', 'SearchSummonerItemBuildController@championDisplay');
 Route::get('/search/{championKey}/{language}', 'SearchSummonerItemBuildController@itemBuildDisplay');
 
+/* Suspended
+Route::get('/blog', function () {
+    //return view(public_path . "/wordpress");
+    //return view("public/wordpress");
+    return $this->redirectTo('http://localhost:1025/Github_LoLTrendResearch/LeagueOfLegendsLaravel/public/wordpress');
+});
+*/
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

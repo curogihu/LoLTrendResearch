@@ -106,6 +106,7 @@ class AllChampionController extends Controller
         //
     }
 
+    /* Unneeded function
     private function getChampionDivTag($champions){
 
       if(count($champions) === 0){
@@ -141,4 +142,5 @@ class AllChampionController extends Controller
       return $tmpStr;
 
     }
+    */
 }
