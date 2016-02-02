@@ -28,6 +28,7 @@
         <a href="/wherelane" class="menuItem">Where lane</a>
         <a href="/howmanycs" class="menuItem">How many CS</a>
         <a href="/form" class="menuItem">Search</a>
+        <a href="{{{asset('/wordpress')}}}" class="menuItem">Blog</a>
       </div>
 
       <div id="contents" class="middleContentItem">
@@ -52,14 +53,19 @@
 
   <script type="text/javascript">
     var json = {!! $contents !!};
+    //var json = $http.get('champions');
 
     var app = angular.module('itemBuildStatisticsApp', [], function($interpolateProvider) {
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
     });
 
-    app.controller('ChampionsController', function(){
+    app.controller('ChampionsController', function($scope, $http){
+      //json = $http.get('champions');
+      //json = sessionStorage.getItem('champions');
+
       this.champions = angular.fromJson(json);
+
     });
 
   </script>

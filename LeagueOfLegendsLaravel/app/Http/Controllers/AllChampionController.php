@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB; // add
+use DB;
+//use Session;
+use Cookie;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 
 class AllChampionController extends Controller
 {
@@ -47,14 +50,23 @@ class AllChampionController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function show()
+    public function show(Request $request)
     {
         $champions = DB::table('Champion')
             ->select('ChampionName', 'ChampionKey')
             ->orderBy('ChampionKey')
             ->get();
 
+        //$response = new \Illuminate\Http\Response(
+         //               view('allChampionsPage')->with('contents', json_encode($champions)))
+
+        //$response->withCookie(cookie('referrer', $request->referrer, 45000));
+
+        //Session::put('champions', json_encode($champions));
+        //echo Session::get('champions');
+        //Cookie::queue('champions', $champions);
         return view('allChampionsPage')->with('contents', json_encode($champions));
+        //return response()->view('allChampionsPage')->json($champions);
     }
 
 /*  old version
