@@ -32,17 +32,14 @@
 
       <div id="contents" class="middleContentItem">
 
-        <div ng-repeat="champion in ChampionsCtrl.champions">
-          <span class='eachChampion col-md-3' style="margin-top: 30px;">
-
-            <img ng-src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/champion/<%champion.ChampionKey%>.png' />
-            <p>
-              <%champion.ChampionName%><br>
-              <a ng-href="whenbuy/<%champion.ChampionKey%>/en">English</a><br>
-              <a ng-href="whenbuy/<%champion.ChampionKey%>/ja">Japanese</a><br>
-            </p>
-          </div>
-        </span>
+        <div ng-repeat="champion in ChampionsCtrl.champions" class='eachChampion col-md-3' style="margin-top: 30px;">
+          <img ng-src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/champion/<%champion.ChampionKey%>.png' />
+          <p>
+            <%champion.ChampionName%><br>
+            <a ng-href="whenbuy/<%champion.ChampionKey%>/en">English</a><br>
+            <a ng-href="whenbuy/<%champion.ChampionKey%>/ja">Japanese</a><br>
+          </p>
+        </div>
       </div>
     </div>
 
