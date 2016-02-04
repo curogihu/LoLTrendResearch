@@ -14,7 +14,7 @@
   <div id="container">
 
     <div id="header" class="middleContentItem">
-      {!! link_to('http://loltrendresearch.xyz', 'LoL Trend Research') !!}
+      <h1>{!! link_to('http://loltrendresearch.xyz', 'LoL Trend Research') !!}</h1>
     </div>
 
     <div id="left">
@@ -23,16 +23,16 @@
 
     <div id="middle">
       <div id="menu" class="middleContentItem">
-        <a href="/whenbuy" class="menuItem">When buy</a>
-        <a href="/whenkilled" class="menuItem">When killed</a>
-        <a href="/wherelane" class="menuItem">Where lane</a>
-        <a href="/howmanycs" class="menuItem">How many CS</a>
-        <a href="/form" class="menuItem">Search</a>
+        <a href="/whenbuy" class="menuItem"><h2>When buy</h2></a>
+        <a href="/whenkilled" class="menuItem"><h2>When killed</h2></a>
+        <a href="/wherelane" class="menuItem"><h2>Where lane</h2></a>
+        <a href="/howmanycs" class="menuItem"><h2>How many CS</h2></a>
+        <a href="/form" class="menuItem"><h2>Search</h2></a>
       </div>
 
       <div id="contents" class="middleContentItem">
 
-        <div ng-repeat="champion in ChampionsCtrl.champions" class='eachChampion col-md-3' style="margin-top: 30px;">
+        <div ng-repeat="champion in ChampionsCtrl.champions" class='eachChampion' style="margin-top: 30px;">
           <img ng-src='http://ddragon.leagueoflegends.com/cdn/5.24.1/img/champion/<%champion.ChampionKey%>.png' />
           <p>
             <%champion.ChampionName%><br>

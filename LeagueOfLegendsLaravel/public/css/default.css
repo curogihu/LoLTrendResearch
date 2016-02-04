@@ -180,13 +180,13 @@ a:active {
   -webkit-flex-basis: 100%;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 960px){
 
   body {
     background-color: black;
     color: grey;
     text-align: left;
-    width: 800px;
+    width: 400px;
     margin: 0px auto;
   }
 
@@ -203,6 +203,8 @@ a:active {
     display: -webkit-flex;
     float: left;
 
+    width: 100%;
+
     flex-flow: row wrap;
     -webkit-flex-flow: row wrap;
   }
@@ -218,7 +220,16 @@ a:active {
 
 }
 
-@media screen and (min-width: 801px){
+@media screen and (min-width: 961px){
+
+  body {
+    background-color: black;
+    color: grey;
+    text-align: left;
+    width: 800px;
+    margin: 0px auto;
+  }
+
   #menu, .championIcon {
     display: flex;
     display: -webkit-flex;
