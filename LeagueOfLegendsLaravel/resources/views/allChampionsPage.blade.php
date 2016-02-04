@@ -28,7 +28,6 @@
         <a href="/wherelane" class="menuItem">Where lane</a>
         <a href="/howmanycs" class="menuItem">How many CS</a>
         <a href="/form" class="menuItem">Search</a>
-        <a href="{{{asset('/wordpress')}}}" class="menuItem">Blog</a>
       </div>
 
       <div id="contents" class="middleContentItem">

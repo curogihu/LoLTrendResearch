@@ -33,7 +33,6 @@
         <a href="/wherelane" class="menuItem">@yield('menuItem3')</a>
         <a href="/howmanycs" class="menuItem">@yield('menuItem4')</a>
         <a href="/form" class="menuItem">@yield('menuItem5')</a>
-        <a href="{{{asset('/wordpress')}}}" class="menuItem">Blog</a>
       </div>
 
       <div id="contents" class="middleContentItem">
