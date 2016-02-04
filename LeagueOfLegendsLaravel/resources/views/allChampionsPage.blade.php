@@ -2,6 +2,8 @@
 <html lang="ja" ng-app="itemBuildStatisticsApp">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" contents="ゲーム「リーグオブレジェンド」において、各チャンピオンの試合時間に適したアイテムが分かるサイトです。 On League of lengeds, You can know when and what should I buy items each champion.">
+  <meta name="keywords" content="リーグオブレジェンド, アイテム, 初心者, チャンピオン, League of Legends, LoL, lol, Champion, Item">
   <title>LoL Trend Research</title>
   <link rel="stylesheet" href="{{{asset('/css/bootstrap.css')}}}" type="text/css">
   <link rel="stylesheet" href="{{{asset('/css/default.css')}}}" type="text/css">
@@ -23,11 +25,11 @@
 
     <div id="middle">
       <div id="menu" class="middleContentItem">
-        <a href="/whenbuy" class="menuItem"><h2>When buy</h2></a>
-        <a href="/whenkilled" class="menuItem"><h2>When killed</h2></a>
-        <a href="/wherelane" class="menuItem"><h2>Where lane</h2></a>
-        <a href="/howmanycs" class="menuItem"><h2>How many CS</h2></a>
-        <a href="/form" class="menuItem"><h2>Search</h2></a>
+        <h2><a href="/whenbuy" class="menuItem">When buy</a></h2>
+        <h2><a href="/whenkilled" class="menuItem">When killed</a></h2>
+        <h2><a href="/wherelane" class="menuItem">Where lane</a></h2>
+        <h2><a href="/howmanycs" class="menuItem">How many CS</a></h2>
+        <h2><a href="/form" class="menuItem">Search</a></h2>
       </div>
 
       <div id="contents" class="middleContentItem">
