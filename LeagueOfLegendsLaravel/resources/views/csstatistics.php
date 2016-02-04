@@ -69,7 +69,6 @@ function getLanguageSelectTag($languages){
   <link rel="stylesheet" href="css/default.css" type="text/css">
 </head>
 <body>
-  <?php include_once("analytics/analyticstracking.php") ?>
   <div id="container">
 
     <div id="header" class="middleContentItem">

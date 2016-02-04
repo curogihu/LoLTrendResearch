@@ -129,7 +129,6 @@ function getChampionLaneTag($championLanes){
 </script>
 
 <body>
-  <?php include_once("analytics/analyticstracking.php") ?>
   <div id="container">
 
     <div id="header" class="middleContentItem">

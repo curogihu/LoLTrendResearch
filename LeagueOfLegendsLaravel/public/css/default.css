@@ -233,6 +233,9 @@ a:active {
   .eachChampion {
     display: flex;
     display: -webkit-flex;
+    float: left;
+
+    width: 25%;
 
     flex-flow: row wrap;
     -webkit-flex-flow: row wrap;

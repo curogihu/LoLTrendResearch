@@ -15,7 +15,6 @@
   <!-- HTML::style('css/default.css'); -->
 </head>
 <body>
-  <?php include_once("analytics/analyticstracking.php") ?>
   <div id="container">
 
     <div id="header" class="middleContentItem">
