@@ -252,4 +252,8 @@ a:active {
     -webkit-flex-flow: row wrap;
   }
 
+  .eachChampion img{
+    width: 100px;
+    height: 100px;
+  }
 }
