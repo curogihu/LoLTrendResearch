@@ -156,10 +156,12 @@ a:active {
   align: left;
 }
 
+/*
 #contents table img{
   width: 50px;
   height: 50px;
 }
+*/
 
 #right {
   height: 80px;
@@ -210,10 +212,6 @@ a:active {
   }
 
   img {
-    /*
-      display: none;
-      float: left;
-    */
     width: 100px;
     height: 100px;
   }
@@ -252,7 +250,7 @@ a:active {
     -webkit-flex-flow: row wrap;
   }
 
-  .eachChampion img{
+  img{
     width: 75px;
     height: 75px;
   }
