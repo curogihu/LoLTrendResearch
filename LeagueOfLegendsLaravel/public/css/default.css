@@ -94,8 +94,9 @@ a:active {
 
 .menuItem {
   height: 50px;
+  margin-right: 10px;
   text-align: center;
-  font-size: 30px;
+  font-size: 27px;
   background-color: black;
 }
 
@@ -183,6 +184,10 @@ a:active {
 }
 
 @media screen and (max-width: 960px){
+
+  .menuItem {
+    font-size: 32px;
+  }
 
   body {
     background-color: black;
