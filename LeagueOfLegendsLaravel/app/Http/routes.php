@@ -47,9 +47,9 @@ Route::get('/import/language', function () {
 /*
   Display page based on various data in MySQL
 */
-Route::get('/', function() {
-    return view('toppage')->with('contents', "");
-});
+Route::get('/', 'TopPageController@index');
+//    return view('toppage')->with('contents', "");
+
 
 Route::get('/whenbuy', 'AllChampionController@show');
 

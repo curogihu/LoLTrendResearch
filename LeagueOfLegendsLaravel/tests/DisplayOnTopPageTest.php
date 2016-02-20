@@ -6,11 +6,27 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class DisplayOnTopPageTest extends TestCase
 {
+
+  public function testTopPageDisplay()
+  {
+    //$this->visit('/')-see('LoL Trend Research');
+    $this->get('/')->see('LoL Trend Research');
+
+    $this->get('/')->see('When buy');
+    $this->get('/')->see('When killed');
+    $this->get('/')->see('Where lane');
+    $this->get('/')->see('How many CS');
+    $this->get('/')->see('Search');
+    //$this->visit('/')->see('LoL Trend Research');
+  }
+
     /**
      * A basic test example.
      *
      * @return void
      */
+
+/*
     public function testExample()
     {
       $response = $this->call('GET', '/');
@@ -18,7 +34,7 @@ class DisplayOnTopPageTest extends TestCase
       $this->checkTitle($response);
       $this->checkItems($response);
     }
-
+*/
 
     private function checkTitle($response)
     {
