@@ -1,5 +1,6 @@
 # LoLTrendResearch
-This Web application consists of PHP, Laravel, Riot Game API and MySQL. 
+This Web application consists of PHP, Laravel, Riot Game API and MySQL.  
+The url is http://loltrendresearch.xyz/
 
 Fortunately, Riot approved it as a web application. 
 Thanks to that, it can utlize the API a lot of times in a short time. 
